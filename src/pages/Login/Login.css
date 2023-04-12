@@ -1,0 +1,20 @@
+.Login {
+  height: 100%;
+  width: 100%;
+  
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+}
+
+.Login-input {
+  height: 30px;
+  width: 150px;
+}
+
+.Login-button {
+  height: 30px;
+  width: 150px;
+}
