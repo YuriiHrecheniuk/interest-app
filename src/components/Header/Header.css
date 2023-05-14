@@ -1,0 +1,32 @@
+:root {
+  --header-height: 75px;
+}
+
+.Header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  height: var(--header-height);
+  background: #969696;
+}
+
+.Header-logo {
+  display: flex;
+  align-items: center;
+
+  margin: 0 0 0 15px;
+  height: var(--header-height);
+  text-align: center;
+}
+
+.Header-link {
+  cursor: pointer;
+}
+
+.Header-profile-icon {
+  float: right;
+  height: var(--header-height);
+  width: var(--header-height);
+  background: #888;
+}
