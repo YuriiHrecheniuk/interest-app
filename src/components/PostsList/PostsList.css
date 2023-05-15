@@ -1,0 +1,11 @@
+.PostsList {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-flow: column;
+}
+
+.PostsList-post-wrapper {
+  margin: 10px 0;
+  width: 50%;
+}

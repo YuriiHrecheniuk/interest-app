@@ -1,9 +1,11 @@
 import './Login.css'
 import { useState } from 'react'
+import {useNavigate} from 'react-router-dom'
 
 export default function LoginForm() {
   const [login, setLogin] = useState('')
   const [password, setPassword] = useState('')
+  const navigate = useNavigate();
 
   return (
     <form className="Login">
@@ -24,8 +26,7 @@ export default function LoginForm() {
         onClick={(e) => {
           e.preventDefault()
 
-          console.log(login)
-          console.log(password)
+          navigate('/feed')
         }}
       >
         Log In
