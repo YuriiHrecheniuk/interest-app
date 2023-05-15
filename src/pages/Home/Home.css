@@ -1,14 +1,14 @@
-.Feed {
+.Home {
   height: 100%;
   display: flex;
   flex-flow: column;
 }
 
-.Feed-header-wrapper {
+.Home-header-wrapper {
   flex: 0;
 }
 
-.Feed-posts-list-wrapper {
+.Home-posts-list-wrapper {
   margin: 0 auto;
   width: 40%;
   padding: 40px 0;
