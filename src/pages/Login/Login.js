@@ -20,17 +20,15 @@ export default function LoginForm() {
         placeholder="password:"
         onChange={(e) => setPassword(e.target.value)}
       />
-      <button
+      <input
         className="Login-button"
         type="submit"
         onClick={(e) => {
           e.preventDefault()
 
-          navigate('/feed')
+          navigate('/home')
         }}
-      >
-        Log In
-      </button>
+      / >
     </form>
   )
 }

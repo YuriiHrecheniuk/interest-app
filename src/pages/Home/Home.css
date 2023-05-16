@@ -8,9 +8,11 @@
   flex: 0;
 }
 
-.Home-posts-list-wrapper {
-  margin: 0 auto;
-  width: 40%;
-  padding: 40px 0;
-  flex: 1;
+.Home-content-wrapper {
+  display: flex;
+  justify-content: center;
+}
+
+.Home-content-feed-wrapper {
+  width: 60%;
 }

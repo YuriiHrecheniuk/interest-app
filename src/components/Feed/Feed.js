@@ -1,13 +1,11 @@
-import './PostsList.css'
+import './Feed.css'
 import Post from '../Post/Post'
 
-export default function PostsList({ posts }) {
-  
-
+export default function Feed({ posts }) {
   return (
-    <div className="PostsList">
+    <div className="Feed">
       {posts.map((post) => (
-        <div className='PostsList-post-wrapper'>
+        <div className="Feed-post-wrapper">
           <Post post={post} key={post.id} />
         </div>
       ))}

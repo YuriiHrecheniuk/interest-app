@@ -1,6 +1,6 @@
 import './Home.css'
 import Header from '../../components/Header/Header'
-import PostsList from '../../components/PostsList/PostsList'
+import Feed from '../../components/Feed/Feed'
 import dummyPosts from '../../dummy/posts'
 import { useReducer } from 'react'
 import postsReducer from '../../reducers/postsReducer'
@@ -14,7 +14,9 @@ export default function Home() {
         <Header />
       </div>
       <div className="Home-content-wrapper">
-        <PostsList posts={posts} />
+        <div className="Home-content-feed-wrapper">
+          <Feed posts={posts} />
+        </div>
       </div>
     </div>
   )
