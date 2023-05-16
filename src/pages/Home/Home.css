@@ -1,0 +1,18 @@
+.Home {
+  height: 100%;
+  display: flex;
+  flex-flow: column;
+}
+
+.Home-header-wrapper {
+  flex: 0;
+}
+
+.Home-content-wrapper {
+  display: flex;
+  justify-content: center;
+}
+
+.Home-content-feed-wrapper {
+  width: 60%;
+}
