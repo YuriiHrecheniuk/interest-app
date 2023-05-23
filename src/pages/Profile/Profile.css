@@ -1,0 +1,21 @@
+.Profile {
+  height: 100%;
+  display: flex;
+  flex-flow: column;
+}
+
+.Profile-header-wrapper {
+  flex: 0;
+}
+
+.Profile-content-wrapper {
+  height: 100%;
+  width: 80%;
+  margin: auto;
+}
+
+.Profile-avatar-icon {
+  width: 100px;
+  height: 100px;
+  margin: 20px;
+}

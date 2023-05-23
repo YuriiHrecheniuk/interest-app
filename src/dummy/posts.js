@@ -1,4 +1,4 @@
-const posts = [
+export const dummyPosts = [
   {
     id: 'post-1',
     username: 'Yurii',
@@ -10,5 +10,3 @@ const posts = [
     text: 'pedik'
   }
 ]
-
-export default posts

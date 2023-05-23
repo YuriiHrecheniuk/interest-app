@@ -1,11 +1,12 @@
 import './Home.css'
 import Header from '../../components/Header/Header'
 import Feed from '../../components/Feed/Feed'
-import dummyPosts from '../../dummy/posts'
+import {dummyPosts} from '../../dummy/posts'
 import { useReducer } from 'react'
 import postsReducer from '../../reducers/postsReducer'
+import withAuthentication from '../../hocs/withAuthentication/withAuthentication'
 
-export default function Home() {
+function Home() {
   const [posts, dispatch] = useReducer(postsReducer, dummyPosts)
 
   return (
@@ -21,3 +22,5 @@ export default function Home() {
     </div>
   )
 }
+
+export default withAuthentication(Home)
