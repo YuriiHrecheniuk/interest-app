@@ -11,14 +11,20 @@ import { useReducer } from 'react'
 import { currentUserReducer } from './reducers/currentUserReducer'
 
 export default function App() {
-  const [currentUser, currentUserDispatch] = useReducer(currentUserReducer, null)
+  const [currentUser, currentUserDispatch] = useReducer(
+    currentUserReducer,
+    null
+  )
 
   return (
     <CurrentUserContext.Provider value={currentUser}>
       <CurrentUserDispatchContext.Provider value={currentUserDispatch}>
         <BrowserRouter>
           <Routes>
-            <Route index element={<LoginForm />} />
+            <Route
+              index
+              element={!currentUser ? <LoginForm /> : <Navigate to="/home" />}
+            />
             <Route path="home" element={<Home />} />
             <Route path="profile" element={<Profile />} />
             <Route path="redirect" element={<Navigate to="/home" />} />

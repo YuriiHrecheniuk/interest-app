@@ -1,18 +1,18 @@
 import './LoginForm.css'
-import { useContext, useState } from 'react'
-import { useNavigate } from 'react-router-dom'
+import { useContext, useEffect, useState } from 'react'
+import { Navigate, useNavigate } from 'react-router-dom'
 
 import { dummyLogin } from '../../dummy/login'
 import { dummyPassword } from '../../dummy/password'
 import { dummyCurrentUser } from '../../dummy/currentUser'
 
-import { CurrentUserDispatchContext } from '../../context/CurrentUser'
+import {
+  CurrentUserDispatchContext,
+} from '../../context/CurrentUser'
 
 export default function LoginForm() {
   const [login, setLogin] = useState('')
   const [password, setPassword] = useState('')
-
-  const navigate = useNavigate()
 
   const currentUserDispatch = useContext(CurrentUserDispatchContext)
 
@@ -22,8 +22,6 @@ export default function LoginForm() {
         type: 'LOGIN',
         user: dummyCurrentUser,
       })
-
-      navigate('/home')
 
       return
     }
