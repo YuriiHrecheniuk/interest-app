@@ -6,6 +6,7 @@ import { useEffect, useState } from 'react'
 import ProfileDescription from '../../components/ProfileDescription/ProfileDescription'
 import { getInterests } from '../../api/interests'
 import { BookInterest } from '../../components/BookInterest/BookInterest'
+import { MovieInterest } from '../../components/MovieInterest/MovieInterest'
 
 function Profile() {
   const [interests, setInterests] = useState([])
@@ -14,6 +15,7 @@ function Profile() {
   }, [setInterests])
 
   const booksInterests = interests.filter(({ type }) => type === 'BOOK')
+  const moviesInterests =  interests.filter(({ type }) => type === 'MOVIE')
 
 
   return (
@@ -28,6 +30,12 @@ function Profile() {
           {booksInterests.length ? <article>
             <h2>Books interests</h2>
             {booksInterests.map((interest, i) => <><BookInterest data={interest} key={i} />
+              <hr />
+            </>)}
+          </article> : null}
+          {moviesInterests.length ? <article>
+            <h2>Movies interests</h2>
+            {moviesInterests.map((interest, i) => <><MovieInterest data={interest} key={i} />
               <hr />
             </>)}
           </article> : null}
