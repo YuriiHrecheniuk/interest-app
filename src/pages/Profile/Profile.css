@@ -9,20 +9,31 @@
 }
 
 .Profile-content-wrapper {
-    height: 100%;
     width: 80%;
     margin: 20px auto;
+
+    display: grid;
+    grid-template:
+            'avatar description'
+            '. interests'
+            / 10% 90%;
+    grid-gap: 35px 0;
 }
 
 .Profile-avatar-icon {
     width: 100px;
     height: 100px;
+    align-self: center;
+    justify-self: center;
 }
 
 .Profile-description-wrapper {
+}
 
+.Profile-interests-divider {
+    width: 30%;
 }
 
 .Profile-interests-section {
-
+    grid-area: interests;
 }

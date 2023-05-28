@@ -7,6 +7,7 @@ import ProfileDescription from '../../components/ProfileDescription/ProfileDescr
 import { getInterests } from '../../api/interests'
 import { BookInterest } from '../../components/BookInterest/BookInterest'
 import { MovieInterest } from '../../components/MovieInterest/MovieInterest'
+import { GameInterest } from '../../components/GameInterest/GameInterest'
 
 function Profile() {
   const [interests, setInterests] = useState([])
@@ -15,7 +16,8 @@ function Profile() {
   }, [setInterests])
 
   const booksInterests = interests.filter(({ type }) => type === 'BOOK')
-  const moviesInterests =  interests.filter(({ type }) => type === 'MOVIE')
+  const moviesInterests = interests.filter(({ type }) => type === 'MOVIE')
+  const gamesInterests = interests.filter(({ type }) => type === 'GAME')
 
 
   return (
@@ -30,13 +32,19 @@ function Profile() {
           {booksInterests.length ? <article>
             <h2>Books interests</h2>
             {booksInterests.map((interest, i) => <><BookInterest data={interest} key={i} />
-              <hr />
+              <hr className='Profile-interests-divider' align='left' />
             </>)}
           </article> : null}
           {moviesInterests.length ? <article>
             <h2>Movies interests</h2>
             {moviesInterests.map((interest, i) => <><MovieInterest data={interest} key={i} />
-              <hr />
+              <hr className='Profile-interests-divider' align='left' />
+            </>)}</article> : null
+          }
+          {gamesInterests.length ? <article>
+            <h2>Games interests</h2>
+            {gamesInterests.map((interest, i) => <><GameInterest data={interest} key={i} />
+              <hr className='Profile-interests-divider' align='left' />
             </>)}
           </article> : null}
         </section>
