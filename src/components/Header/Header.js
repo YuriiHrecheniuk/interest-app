@@ -5,8 +5,8 @@ import { ReactComponent as AvatarIcon } from '../../assets/avatar.svg'
 export default function Header() {
   const navigate = useNavigate()
 
-  function navigateToFeed() {
-    navigate('/feed')
+  function navigateToHome() {
+    navigate('/home')
   }
 
   function navigateToProfile() {
@@ -15,7 +15,7 @@ export default function Header() {
 
   return (
     <header className="Header">
-      <div className="Header-logo Header-link" onClick={navigateToFeed}>
+      <div className="Header-logo Header-link" onClick={navigateToHome}>
         INTEREST
       </div>
       <AvatarIcon
