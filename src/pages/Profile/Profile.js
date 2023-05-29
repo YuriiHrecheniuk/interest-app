@@ -2,18 +2,15 @@ import './Profile.css'
 import Header from '../../components/Header/Header'
 import { ReactComponent as AvatarIcon } from '../../assets/avatar.svg'
 import withAuthentication from '../../hocs/withAuthentication/withAuthentication'
-import { useEffect, useState } from 'react'
+import { useContext, Fragment } from 'react'
 import ProfileDescription from '../../components/ProfileDescription/ProfileDescription'
-import { getInterests } from '../../api/interests'
 import { BookInterest } from '../../components/BookInterest/BookInterest'
 import { MovieInterest } from '../../components/MovieInterest/MovieInterest'
 import { GameInterest } from '../../components/GameInterest/GameInterest'
+import { UserInterestsContext } from '../../context/UserActivities'
 
 function Profile() {
-  const [interests, setInterests] = useState([])
-  useEffect(() => {
-    getInterests('').then(setInterests)
-  }, [setInterests])
+  const interests = useContext(UserInterestsContext)
 
   const booksInterests = interests.filter(({ type }) => type === 'BOOK')
   const moviesInterests = interests.filter(({ type }) => type === 'MOVIE')
@@ -31,21 +28,21 @@ function Profile() {
         <section className='Profile-interests-section'>
           {booksInterests.length ? <article>
             <h2>Books interests</h2>
-            {booksInterests.map((interest, i) => <><BookInterest data={interest} key={i} />
+            {booksInterests.map((interest) => <Fragment key={interest.id}><BookInterest data={interest} />
               <hr className='Profile-interests-divider' align='left' />
-            </>)}
+            </Fragment>)}
           </article> : null}
           {moviesInterests.length ? <article>
             <h2>Movies interests</h2>
-            {moviesInterests.map((interest, i) => <><MovieInterest data={interest} key={i} />
+            {moviesInterests.map((interest) => <Fragment key={interest.id}><MovieInterest data={interest} />
               <hr className='Profile-interests-divider' align='left' />
-            </>)}</article> : null
+            </Fragment>)}</article> : null
           }
           {gamesInterests.length ? <article>
             <h2>Games interests</h2>
-            {gamesInterests.map((interest, i) => <><GameInterest data={interest} key={i} />
+            {gamesInterests.map((interest) => <Fragment key={interest.id}><GameInterest data={interest} />
               <hr className='Profile-interests-divider' align='left' />
-            </>)}
+            </Fragment>)}
           </article> : null}
         </section>
       </div>

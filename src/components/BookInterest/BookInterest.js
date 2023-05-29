@@ -1,4 +1,19 @@
+import { useContext } from 'react'
+import { UserInterestsDispatchContext } from '../../context/UserActivities'
+
 export const BookInterest = ({ data }) => {
+  const userInterestsDispatch = useContext(UserInterestsDispatchContext)
+
+  const finishActivity = async () => {
+    userInterestsDispatch({
+      type: 'FINISH_ACTIVITY',
+      activity: {
+        ...data,
+        finishedAt: new Date()
+      }
+    })
+  }
+
   const { startedAt, finishedAt } = data
 
   if (!startedAt) {
@@ -6,7 +21,7 @@ export const BookInterest = ({ data }) => {
   }
 
   if (startedAt && !finishedAt) {
-    return <p>Reads <strong>"{data.subject}"</strong> book <button>Finish</button></p>
+    return <p>Reads <strong>"{data.subject}"</strong> book <button onClick={finishActivity}>Finish</button></p>
   }
 
   return <p>Finished reading <strong>"{data.subject}"</strong> book</p>
