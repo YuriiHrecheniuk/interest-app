@@ -3,6 +3,7 @@ import { BookInterest } from '../BookInterest/BookInterest'
 import { MovieInterest } from '../MovieInterest/MovieInterest'
 import { GameInterest } from '../GameInterest/GameInterest'
 import { UserInterestsContext } from '../../context/UserActivities'
+import { AddInterest } from '../AddInterest/AddInterest'
 
 export const UserActivities = () => {
   const userInterests = useContext(UserInterestsContext)
@@ -19,5 +20,6 @@ export const UserActivities = () => {
     {moviesInterests.map((interest) => <MovieInterest data={interest} key={interest.id} />)}
     {gamesInterests.map((interest) => <GameInterest data={interest} key={interest.id} />)}
     {!unfinishedUserInterests.length ? <p>You have finished all your activities</p> : null}
+    <AddInterest />
   </section>
 }
