@@ -1,23 +1,14 @@
-import { useContext } from 'react'
-import { UserInterestsDispatchContext } from '../../context/UserActivities'
+import { useFinishActivity } from '../../hooks/useFinishActivity'
+import { useStartActivity } from '../../hooks/useStartActivity'
 
 export const BookInterest = ({ data }) => {
-  const userInterestsDispatch = useContext(UserInterestsDispatchContext)
-
-  const finishActivity = async () => {
-    userInterestsDispatch({
-      type: 'FINISH_ACTIVITY',
-      activity: {
-        ...data,
-        finishedAt: new Date()
-      }
-    })
-  }
+  const startActivity = useStartActivity(data)
+  const finishActivity = useFinishActivity(data)
 
   const { startedAt, finishedAt } = data
 
   if (!startedAt) {
-    return <p>Plans reading <strong>"{data.subject}"</strong> book <button>Start</button></p>
+    return <p>Plans reading <strong>"{data.subject}"</strong> book <button onClick={startActivity}>Start</button></p>
   }
 
   if (startedAt && !finishedAt) {
