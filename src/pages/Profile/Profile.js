@@ -2,12 +2,13 @@ import './Profile.css'
 import Header from '../../components/Header/Header'
 import { ReactComponent as AvatarIcon } from '../../assets/avatar.svg'
 import withAuthentication from '../../hocs/withAuthentication/withAuthentication'
-import { useContext, Fragment } from 'react'
+import { Fragment, useContext } from 'react'
 import ProfileDescription from '../../components/ProfileDescription/ProfileDescription'
 import { BookInterest } from '../../components/BookInterest/BookInterest'
 import { MovieInterest } from '../../components/MovieInterest/MovieInterest'
 import { GameInterest } from '../../components/GameInterest/GameInterest'
 import { UserInterestsContext } from '../../context/UserActivities'
+import { AddInterest } from '../../components/AddInterest/AddInterest'
 
 function Profile() {
   const interests = useContext(UserInterestsContext)
@@ -25,6 +26,13 @@ function Profile() {
       <div className='Profile-content-wrapper'>
         <AvatarIcon className='Profile-avatar-icon' />
         <div className='Profile-description-wrapper'><ProfileDescription /></div>
+
+        <div className='Profile-add-interest-wrapper'>
+          <hr />
+          <AddInterest />
+          <hr />
+        </div>
+
         <section className='Profile-interests-section'>
           {booksInterests.length ? <article>
             <h2>Books interests</h2>

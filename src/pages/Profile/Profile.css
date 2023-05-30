@@ -15,6 +15,7 @@
     display: grid;
     grid-template:
             'avatar description'
+            '. add-interest'
             '. interests'
             / 10% 90%;
     grid-gap: 35px 0;
@@ -36,4 +37,8 @@
 
 .Profile-interests-section {
     grid-area: interests;
+}
+
+.Profile-add-interest-wrapper {
+    grid-area: add-interest;
 }

@@ -8,7 +8,7 @@ import { AddInterest } from '../AddInterest/AddInterest'
 export const UserActivities = () => {
   const userInterests = useContext(UserInterestsContext)
 
-  const unfinishedUserInterests = userInterests.filter(({ finishedAt }) => !finishedAt)
+  const unfinishedUserInterests = userInterests.filter(({ status }) => status !== 'FINISHED')
 
   const booksInterests = unfinishedUserInterests.filter(({ type, finishedAt }) => type === 'BOOK')
   const moviesInterests = unfinishedUserInterests.filter(({ type, finishedAt }) => type === 'MOVIE')

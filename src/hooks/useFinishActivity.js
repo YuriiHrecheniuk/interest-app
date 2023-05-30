@@ -9,6 +9,7 @@ export const useFinishActivity = (activityData) => {
       type: 'FINISH_ACTIVITY',
       activity: {
         ...activityData,
+        status: 'FINISHED',
         finishedAt: new Date()
       }
     })

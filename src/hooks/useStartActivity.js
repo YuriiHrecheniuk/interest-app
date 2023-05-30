@@ -9,6 +9,7 @@ export const useStartActivity = (activityData) => {
       type: 'START_ACTIVITY',
       activity: {
         ...activityData,
+        status: 'PROGRESS',
         startedAt: new Date()
       }
     })

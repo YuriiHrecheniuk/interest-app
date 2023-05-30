@@ -1,5 +1,4 @@
 .Home {
-  height: 100%;
   display: flex;
   flex-flow: column;
 }
@@ -9,6 +8,7 @@
 }
 
 .Home-content-wrapper {
+  width: 100vw;
   display: flex;
   justify-content: center;
 }

@@ -5,15 +5,15 @@ export const MovieInterest = ({ data }) => {
   const startActivity = useStartActivity(data)
   const finishActivity = useFinishActivity(data)
 
-  const { startedAt, finishedAt } = data
-
-  if (!startedAt) {
-    return <p>Plans watching <strong>"{data.subject}"</strong> movie <button onClick={startActivity}>Start</button></p>
+  switch (data.status) {
+    case 'PLANNED':
+      return <p>Plans watching <strong>"{data.subject}"</strong> movie <button onClick={startActivity}>Start</button>
+      </p>
+    case 'PROGRESS':
+      return <p>Watches <strong>"{data.subject}"</strong> movie <button onClick={finishActivity}>Finish</button></p>
+    case 'FINISHED':
+      return <p>Finished watching <strong>"{data.subject}"</strong> movie</p>
+    default:
+      return null
   }
-
-  if (startedAt && !finishedAt) {
-    return <p>Watches <strong>"{data.subject}"</strong> movie <button onClick={finishActivity}>Finish</button></p>
-  }
-
-  return <p>Finished watching <strong>"{data.subject}"</strong> movie</p>
 }
