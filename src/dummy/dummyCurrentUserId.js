@@ -1,0 +1,1 @@
+export const dummyCurrentUserId = '64786e4305b481fbf97450de'

@@ -3,8 +3,8 @@ import { CurrentUserDispatchContext } from '../../../context/CurrentUser'
 
 import { dummyLogin } from '../../../dummy/login'
 import { dummyPassword } from '../../../dummy/password'
-import { dummyCurrentUser } from '../../../dummy/currentUser'
 import { useNavigate } from 'react-router-dom'
+import { dummyCurrentUserId } from '../../../dummy/dummyCurrentUserId'
 
 export const useSignIn = () => {
   const currentUserDispatch = useContext(CurrentUserDispatchContext)
@@ -19,17 +19,17 @@ export const useSignIn = () => {
       credentials.login === dummyLogin &&
       credentials.password === dummyPassword
     ) {
-      currentUserDispatch({
-        type: 'LOGIN',
-        user: dummyCurrentUser,
+      getUser(dummyCurrentUserId).then((user) => {
+        currentUserDispatch({
+          type: 'LOGIN',
+          user,
+        })
+
+        navigate('/home')
       })
-
-      navigate('/home')
-
-      return
+    } else {
+      console.log('invalid credentials')
     }
-
-    console.log('invalid credentials')
   }, [credentials, navigate, currentUserDispatch])
 
   return setCredentials

@@ -16,9 +16,9 @@ export const UserActivities = () => {
 
   return <section>
     <h2>Your activities</h2>
-    {booksInterests.map((interest) => <BookInterest data={interest} key={interest.id} />)}
-    {moviesInterests.map((interest) => <MovieInterest data={interest} key={interest.id} />)}
-    {gamesInterests.map((interest) => <GameInterest data={interest} key={interest.id} />)}
+    {booksInterests.map((interest) => <BookInterest data={interest} key={interest._id} />)}
+    {moviesInterests.map((interest) => <MovieInterest data={interest} key={interest._id} />)}
+    {gamesInterests.map((interest) => <GameInterest data={interest} key={interest._id} />)}
     {!unfinishedUserInterests.length ? <p>You have finished all your activities</p> : null}
     <AddInterest />
   </section>

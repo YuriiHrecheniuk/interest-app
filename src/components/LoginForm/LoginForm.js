@@ -1,29 +1,37 @@
 import './LoginForm.css'
-import { useContext, useEffect, useState } from 'react'
-import { Navigate, useNavigate } from 'react-router-dom'
+import { useContext, useState } from 'react'
+import { useNavigate } from 'react-router-dom'
+import { getUser } from '../../api/users'
 
 import { dummyLogin } from '../../dummy/login'
 import { dummyPassword } from '../../dummy/password'
-import { dummyCurrentUser } from '../../dummy/currentUser'
 
-import {
-  CurrentUserDispatchContext,
-} from '../../context/CurrentUser'
+import { CurrentUserDispatchContext } from '../../context/CurrentUser'
+import { dummyCurrentUserId } from '../../dummy/dummyCurrentUserId'
 
 export default function LoginForm() {
   const [login, setLogin] = useState('')
   const [password, setPassword] = useState('')
 
+  const navigate = useNavigate()
+
   const currentUserDispatch = useContext(CurrentUserDispatchContext)
 
   function signIn(login, password) {
-    if (login === dummyLogin && password === dummyPassword) {
-      currentUserDispatch({
-        type: 'LOGIN',
-        user: dummyCurrentUser,
-      })
+    if (
+      login === dummyLogin &&
+      password === dummyPassword
+    ) {
+      getUser(dummyCurrentUserId).then((user) => {
+        currentUserDispatch({
+          type: 'LOGIN',
+          user,
+        })
 
-      return
+        navigate('/home')
+      })
+    } else {
+      console.log('invalid credentials')
     }
 
     console.log('invalid credentials')
@@ -36,21 +44,21 @@ export default function LoginForm() {
   }
 
   return (
-    <form className="Login">
+    <form className='Login'>
       <input
-        className="LoginForm-input"
-        placeholder="login:"
+        className='LoginForm-input'
+        placeholder='login:'
         onChange={(e) => setLogin(e.target.value)}
       />
       <input
-        className="LoginForm-input"
-        type="password"
-        placeholder="password:"
+        className='LoginForm-input'
+        type='password'
+        placeholder='password:'
         onChange={(e) => setPassword(e.target.value)}
       />
       <input
-        className="LoginForm-button"
-        type="submit"
+        className='LoginForm-button'
+        type='submit'
         onClick={onSignInButtonClick}
       />
     </form>

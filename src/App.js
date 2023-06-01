@@ -22,8 +22,13 @@ export default function App() {
   )
 
   useEffect(() => {
-    getInterests('').then((interests) => userActivitiesDispatch({ type: 'SET_ACTIVITIES', activities: interests }))
-  }, [userActivitiesDispatch])
+    if (currentUser) {
+      getInterests(currentUser._id).then((interests) => userActivitiesDispatch({
+        type: 'SET_ACTIVITIES',
+        activities: interests,
+      }))
+    }
+  }, [userActivitiesDispatch, currentUser])
 
   return (
     <CurrentUserContext.Provider value={currentUser}>

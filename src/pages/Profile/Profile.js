@@ -36,19 +36,19 @@ function Profile() {
         <section className='Profile-interests-section'>
           {booksInterests.length ? <article>
             <h2>Books interests</h2>
-            {booksInterests.map((interest) => <Fragment key={interest.id}><BookInterest data={interest} />
+            {booksInterests.map((interest) => <Fragment key={interest._id}><BookInterest data={interest} />
               <hr className='Profile-interests-divider' align='left' />
             </Fragment>)}
           </article> : null}
           {moviesInterests.length ? <article>
             <h2>Movies interests</h2>
-            {moviesInterests.map((interest) => <Fragment key={interest.id}><MovieInterest data={interest} />
+            {moviesInterests.map((interest) => <Fragment key={interest._id}><MovieInterest data={interest} />
               <hr className='Profile-interests-divider' align='left' />
             </Fragment>)}</article> : null
           }
           {gamesInterests.length ? <article>
             <h2>Games interests</h2>
-            {gamesInterests.map((interest) => <Fragment key={interest.id}><GameInterest data={interest} />
+            {gamesInterests.map((interest) => <Fragment key={interest._id}><GameInterest data={interest} />
               <hr className='Profile-interests-divider' align='left' />
             </Fragment>)}
           </article> : null}

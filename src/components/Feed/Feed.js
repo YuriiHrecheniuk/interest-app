@@ -5,7 +5,7 @@ export default function Feed({ posts }) {
   return (
     <div className='Feed'>
       {posts.map((post) => (
-        <div className='Feed-post-wrapper' key={post.id}>
+        <div className='Feed-post-wrapper' key={post._id}>
           <Post post={post} />
         </div>
       ))}

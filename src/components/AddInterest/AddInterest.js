@@ -1,8 +1,12 @@
 import './AddInterest.css'
 import { useContext, useState } from 'react'
 import { UserInterestsDispatchContext } from '../../context/UserActivities'
+import { createInterest } from '../../api/interests'
+import { CurrentUserContext } from '../../context/CurrentUser'
 
 export const AddInterest = () => {
+  const currentUser = useContext(CurrentUserContext)
+
   const userInterestsDispatch = useContext(UserInterestsDispatchContext)
 
   const [type, setType] = useState('BOOK')
@@ -24,17 +28,18 @@ export const AddInterest = () => {
     setSubject(e.target.value)
   }
 
-  const onSubmit = (e) => {
+  const onSubmit = async (e) => {
     e.preventDefault()
+
+    const interest = await createInterest(currentUser._id, {
+      type,
+      subject,
+      status,
+    })
 
     userInterestsDispatch({
       type: 'ADD_ACTIVITY',
-      activity: {
-        id: '1231243124',
-        type,
-        subject,
-        status,
-      },
+      activity: interest,
     })
   }
 

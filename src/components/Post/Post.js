@@ -8,9 +8,8 @@ export default function Post({ post }) {
         <AvatarIcon className="Post-avatar" />
       </div>
       <div>
-        <div className='Post-user-info'><strong>{post.firstName} {post.secondName}</strong> @{post.username}</div>
+        <div className='Post-user-info'><strong>{post.author.name}</strong> @{post.author.nickname}</div>
         <div>{post.text}</div>
-        <small>{post.date}</small>
       </div>
     </div>
   )
